@@ -1,6 +1,6 @@
 {
   "name": "sim-vue-validator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "基于正则的极简表单校验指令",
   "main": "lib/sim-vue-validator.umd.min.js",
   "author": "ayioz",
