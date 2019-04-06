@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <input type="text" v-sim-valid required v-model="input" maxlength="10" :minlength="minlen">
+    <input type="text" v-sim-valid="valid" required v-model="input" maxlength="10" :minlength="minlen">
     <button @click="doChange">sub</button>
   </div>
 </template>
@@ -11,7 +11,19 @@ export default {
   data(){
     return{
       input:'test',
-      minlen:2
+      minlen:2,
+      valid:{
+        // 正则
+        regexp:/^[0-9]+$/,
+        // 自定义classname
+        succcss:'succ-classname',
+        // 自定义classname
+        failcss:'fail-classname',
+        // 校验通过回调
+        succ:function(el, value){ console.log("succ ",el, value) },
+        // 校验失败回调
+        fail:function(el, value){ console.log("fail ",el, value)}
+      }
     }
   },
   props:['a_prop'],

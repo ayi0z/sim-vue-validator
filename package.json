@@ -1,14 +1,14 @@
 {
   "name": "sim-vue-validator",
   "version": "0.1.0",
-  "description": "修正手机页面中，因input/select/textarea调用手机输入法后，页面上移的问题",
+  "description": "基于正则的极简表单校验指令",
   "main": "lib/sim-vue-validator.umd.min.js",
   "author": "ayioz",
   "private": false,
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ayi0z/fix-m-input-page-position.git"
+    "url": "git@github.com:ayi0z/sim-vue-validator.git"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
