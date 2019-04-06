@@ -1,7 +1,19 @@
 <template>
   <div id="app">
+    <p>input</p>
     <input type="text" v-sim-valid="valid" required v-model="input" maxlength="10" :minlength="minlen">
-    <button @click="doChange">sub</button>
+    <button @click="doChange">clear</button>
+    <p>
+      select
+    </p>
+    <select v-sim-valid required>
+        <option value=""></option>
+        <option v-for="op in ops" :key="op" :value="op">{{`option ${op}`}}</option>
+    </select>
+
+    <p>
+      <button @click="doSubmit">校验全部通过</button>
+    </p>
   </div>
 </template>
 
@@ -10,8 +22,9 @@ export default {
   name: 'app',
   data(){
     return{
-      input:'test',
+      input:'',
       minlen:2,
+      ops: [0, 1, 2, 3, 4, 5, 6, 7, 8],
       valid:{
         // 正则
         regexp:/^[0-9]+$/,
@@ -26,20 +39,16 @@ export default {
       }
     }
   },
-  props:['a_prop'],
-  computed:{
-    a_cpu(){
-      return 'i am cpu'
-    }
-  },
-  watch:{
-    input(){
-      return 'i am a watch'
-    }
-  },
   methods:{
     doChange(){
-      this.input += '_1'
+      this.input = ''
+    },
+    doSubmit(){
+      if(this.isSimValidPassed()){
+        alert('校验全部通过')
+      }else{
+        alert('校验不通过')
+      }
     }
   }
 }

@@ -7,8 +7,8 @@ const install = function(Vue){
 
     Vue.directive('sim-valid', {
         inserted:function (el, binding, vnode) {
-            if (!vnode.context['isReValidPassed']) {
-                vnode.context['isReValidPassed'] = function () {
+            if (!vnode.context['isSimValidPassed']) {
+                vnode.context['isSimValidPassed'] = function () {
                     for (let a = 0, els = document.querySelectorAll("*[data-re-valid]"); a < els.length; a++) {
                         if(els[a].offsetParent != null){
                             if (els[a].getAttribute("data-re-valid") == 'false') {
