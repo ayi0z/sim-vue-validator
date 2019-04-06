@@ -3,10 +3,6 @@
 ## 说明
     基于正则的极简表单验证
 
-## examples
-
-<iframe src="https://ayi0z.github.io/sim-vue-valid/dist/index.html" width="300px" height="300px" frameborder="0" scrolling="no"> </iframe>
-
 ## 安装
 ```
 npm i sim-vue-validator
