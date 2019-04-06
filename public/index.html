@@ -1,17 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>sim-vue-validator</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but sim-vue-validator doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>sim-vue-validator | 基于正则的极简表单验证指令</title>
+  <meta name="generator" content="Jekyll v3.7.4" />
+  <meta property="og:title" content="sim-vue-validator" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description" content="基于正则的极简表单验证指令" />
+  <meta property="og:description" content="基于正则的极简表单验证指令" />
+  <link rel="canonical" href="https://ayi0z.github.io/sim-vue-validator/" />
+  <meta property="og:url" content="https://ayi0z.github.io/sim-vue-validator/" />
+  <meta property="og:site_name" content="sim-vue-validator" />
+  <script type="application/ld+json">
+    {"@type":"WebSite","url":"https://ayi0z.github.io/sim-vue-validator/","name":"sim-vue-validator","headline":"sim-vue-validator","description":"基于正则的极简表单验证指令","@context":"http://schema.org"}</script>
+  <!-- End Jekyll SEO tag -->
+  <meta name="theme-color" content="#157878">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but sim-vue-validator doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <section class="page-header">
+    <h1 class="project-name">sim-vue-validator</h1>
+    <h2 class="project-tagline">基于正则的极简表单验证指令</h2>
+    <a href="https://github.com/ayi0z/sim-vue-validator" class="btn">View on GitHub</a>
+  </section>
+  <div id="app"></div>
+
+  <section class="main-content">
+    <h2 id="说明">说明</h2>
+    <div class="highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>基于正则的极简表单验证
+</code></pre>
+      </div>
+    </div>
+
+    <h2 id="安装">安装</h2>
+    <div class="highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>npm i sim-vue-validator
+</code></pre>
+      </div>
+    </div>
+
+    <h2 id="使用">使用</h2>
+    <div class="highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>import validator from 'sim-vue-validator'
+import 'sim-vue-validator/lib/sim-vue-validator.css'
+Vue.use(validator)
+
+&lt;input v-sim-valid="/^[0-9]+$/" /&gt;
+</code></pre>
+      </div>
+    </div>
+    <h3 id="基本使用required-maxlength-minlength">基本使用(required, maxlength, minlength)</h3>
+    <div class="highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;input v-sim-valid="/^[0-9]+$/" required maxlength="10" minlength="1"/&gt;
+</code></pre>
+      </div>
+    </div>
+    <h3 id="自定义样式">自定义样式</h3>
+    <div class="highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;input v-sim-valid="validcfg" /&gt;
+
+validcfg:{
+    // 正则
+    regexp:/^[0-9]+$/,
+    // 自定义classname
+    succcss:'succ-classname',
+    // 自定义classname
+    failcss:'fail-classname',
+    // 校验通过回调
+    succ:function(el, value){ console.log("succ ",el, value) },
+    // 校验失败回调
+    fail:function(el, value){ console.log("fail ",el, value)}
+}
+</code></pre>
+      </div>
+    </div>
+
+    <h3 id="自定义校验逻辑">自定义校验逻辑</h3>
+    <div class="highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;input v-sim-valid="validcfg" /&gt;
+
+validcfg:function(el, binding, vnode)
+</code></pre>
+      </div>
+    </div>
+    <h3 id="自定义默认样式">自定义默认样式</h3>
+    <h4 id="重写-sim-valid-succ-和-sim-valid-fail-即可">重写 .sim-valid-succ 和 .sim-valid-fail 即可</h4>
+    <div class="highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight">
+          <code>
+.sim-valid-fail{
+    border:solid 1px #ff0000;
+}
+.sim-valid-succ{
+    border:solid 1px #2e963d;
+}
+</code>
+</pre>
+      </div>
+    </div>
+
+    <h2 id="project-setup">Project setup</h2>
+    <div class="highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>npm install
+</code></pre>
+      </div>
+    </div>
+
+    <h3 id="compiles-and-hot-reloads-for-development">Compiles and hot-reloads for development</h3>
+    <div class="highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>npm run serve
+</code></pre>
+      </div>
+    </div>
+
+    <h3 id="compiles-and-minifies-for-production">Compiles and minifies for production</h3>
+    <div class="highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>npm run build
+</code></pre>
+      </div>
+    </div>
+
+
+    <footer class="site-footer">
+
+      <span class="site-footer-owner"><a href="https://github.com/ayi0z/sim-vue-validator">sim-vue-validator</a> is
+        maintained by <a href="https://github.com/ayi0z">ayi0z</a>.</span>
+
+      <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub
+          Pages</a>.</span>
+    </footer>
+  </section>
+</body>
+
 </html>
