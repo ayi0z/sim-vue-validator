@@ -1,0 +1,6 @@
+.sim-valid-fail{
+    border:solid 1px #ff0000;
+}
+.sim-valid-succ{
+    border:solid 1px #2e963d;
+}

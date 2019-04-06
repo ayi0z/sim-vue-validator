@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <input type="text" v-sim-valid required v-model="input" maxlength="10" :minlength="minlen">
+    <button @click="doChange">sub</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  data(){
+    return{
+      input:'test',
+      minlen:2
+    }
+  },
+  props:['a_prop'],
+  computed:{
+    a_cpu(){
+      return 'i am cpu'
+    }
+  },
+  watch:{
+    input(){
+      return 'i am a watch'
+    }
+  },
+  methods:{
+    doChange(){
+      this.input += '_1'
+    }
   }
 }
 </script>
@@ -25,4 +42,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
